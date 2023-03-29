@@ -3,7 +3,7 @@ import openai
 import os
 
 app = Flask(__name__)
-openai.api_key = "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"
+openai.api_key = ""
 
 @app.route("/", methods=["GET"])
 def index():
