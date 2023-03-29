@@ -1,0 +1,82 @@
+<!-- <!DOCTYPE html>
+<html>
+  <head>
+    <title>Language Converter</title>
+  </head>
+  <body>
+    <h1>Language Converter</h1>
+    <form action="/translate" method="POST">
+      <label for="source">Source language:</label>
+      <input type="text" name="source"><br><br>
+      <label for="target">Target language:</label>
+      <input type="text" name="target"><br><br>
+      <label for="input">Input code:</label>
+      <textarea name="code" id="code"></textarea><br><br>
+      <input type="submit" value="Translate">
+    </form>
+  </body>
+</html> -->
+<!doctype html>
+<html>
+<head>
+    <title>Code Converter</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+</head>
+<body>
+    <center>
+    <h1 class="p-3 mb-2 bg-dark text-white">Code Converter</h1>
+    <div class="container">
+        <br>
+        <form action="/convert" method="post">
+            <div class="mb-3">
+                <label for="source_language" class="form-label">Source Language</label>
+                <select class="form-select" name="source" aria-label="Default select example">
+                    <option selected>Python</option>
+                    <option value="Javascript">Javascript</option>
+                    <option value="Typescript">Typescript</option>
+                    <option value="Java">Java</option>
+                    <option value="Bash">Bash</option>
+                    <option value="Shell">Shell</option>
+                    <option value="Java">Java</option>
+                    <option value="Go">Go</option>
+                    <option value="PHP">PHP</option>
+                    <option value="C#">C#</option>
+                    <option value="C++">C++</option>
+                    <option value="C">C</option>
+                    <option value="Powershell">Powershell</option>
+                    <option value="Ruby">Ruby</option>
+                    <option value="Perl">Perl</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="target_language" class="form-label">Target Language</label>
+                <select class="form-select" name="target" aria-label="Default select example">
+                    <option selected>Python</option>
+                    <option value="Javascript">Javascript</option>
+                    <option value="Typescript">Typescript</option>
+                    <option value="Java">Java</option>
+                    <option value="Bash">Bash</option>
+                    <option value="Shell">Shell</option>
+                    <option value="Go">Go</option>
+                    <option value="PHP">PHP</option>
+                    <option value="C#">C#</option>
+                    <option value="C++">C++</option>
+                    <option value="C">C</option>
+                    <option value="Powershell">Powershell</option>
+                    <option value="Ruby">Ruby</option>
+                    <option value="Perl">Perl</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="input_code">Input Code</label><br>
+                <textarea class="form-control"  name="code" rows="10" placeholder="Enter code"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Convert Code</button>
+        </form>
+    </div>
+    <div class="footer fixed-bottom bg-dark text-white">Developed by <a href="https://shawonruet.com" target="_blank">Shawon</a></div>
+   </center>
+   
+</body>
+</html> 
