@@ -1,9 +1,14 @@
+from groq import Groq
 from flask import Flask, render_template, request
-import openai
 import os
+import os
+import datetime
 
 app = Flask(__name__)
-openai.api_key = "YOUR-API-KEY"
+
+client = Groq(
+    api_key=os.environ.get("GROQ_API_KEY"),
+)
 
 @app.route("/", methods=["GET"])
 def index():
@@ -16,20 +21,24 @@ def translate():
         target_language = request.form.get("target")
         code = request.form.get("code")
 
-        prompt = f"Translate this function from {source_language} into {target_language} ### {source_language} \n\n {code} \n\n ### {target_language}"
+        prompt = [
+            {
+               "role": "user",
+               "content": "Translate this function from" +source_language+ " into " +target_language+ "###" +source_language+ " \n\n" +code+ "\n\n ###" +target_language
+            }
+        ]
 
-        response = openai.Completion.create(
-            model="text-davinci-003",
-            prompt= prompt,
-            temperature=0,
-            max_tokens=1050,
+        response = client.chat.completions.create(
+            model="llama3-70b-8192",
+            messages= prompt,
+            temperature=1,
+            max_tokens=1024,
             top_p=1,
-            frequency_penalty=0,
-            presence_penalty=0,
-            stop=["###"]
+            stream=False,
+            stop=None
         )
 
-        output = response.choices[0].text
+        output = response.choices[0].message.content
         return render_template("translate.html", output=output)
 
 if __name__ == '__main__':
